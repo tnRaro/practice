@@ -2,6 +2,9 @@
 #include "Component.h"
 
 class Entity {
-private:
-	vector<Component> components;
+	std::vector<Component> components;
+public:
+	Component getComponent(int id) {
+		return components[id];
+	}
 };

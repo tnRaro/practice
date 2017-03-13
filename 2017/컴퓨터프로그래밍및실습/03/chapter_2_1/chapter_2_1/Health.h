@@ -1,4 +1,5 @@
 class Health {
+	int health;
 public:
 	Health(int);
 	enum class State {
@@ -6,6 +7,4 @@ public:
 		Dead
 	};
 	State getState();
-private:
-	int health;
 };
