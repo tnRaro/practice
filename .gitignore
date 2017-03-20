@@ -1,4 +1,6 @@
-/**/test/*
-/**/build/*
-**/.project
+test/*
+build/*
+.project
 bin/*
+*.out
+*.o

@@ -1,0 +1,50 @@
+\begin{align}
+\Sigma &= \{0, ..., 9, +, -, *, /, \%\}	\\
+
+G &= \left(\{ A, N, O, S, Z \}, \Sigma, S, P\right) \\
+\end{align}
+
+\begin{align}
+S & \Rightarrow ZA \\
+A & \Rightarrow OZA | \lambda \\
+O & \Rightarrow + | - | * | / | \% \\
+Z & \Rightarrow -N | N \\
+N & \Rightarrow NN | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 \\
+\end{align}
+
+L\left(G\right) = \{
+    u\left(ov\right)^n
+    \mid
+    u \in Z,
+    v \in Z,
+    o \in \{+,-,*,/,\%\},
+    n \ge 0,
+    n \in Z
+\}
+
+L\left(G\right) = \{
+    au\left(obv\right)^n
+    \mid
+    a \in \{ +, -, \lambda \},
+    u \in \{ 0,\cdots,9\}^+,
+    o \in \{+,-,*,/,\%\},
+    b \in \{ +, -, \lambda \},
+    v \in \{ 0,\cdots,9\}^+,
+    n \ge 0,
+    n \in Z
+\}
+
+\begin{align}
+S &= \{ +, - \}\\
+N &= \{ 0, \cdots, 9 \} \\
+O &= \{ +, -, *, /, \% \} \\
+\Sigma &= S \cup N \cup O \\
+\mathsf{dfa}\ M &= (\{q_0,q_{sign},q_{number},q_{operator}\},\Sigma,\delta,q_0,q_{number}) \\
+&\delta(q_0, s \in S) = q_{sign} \\
+&\delta(q_0, n \in N) = q_{number} \\
+&\delta(q_{sign}, n \in N) = q_{number} \\
+&\delta(q_{number}, n \in N) = q_{number} \\
+&\delta(q_{number}, o \in O) = q_{operator} \\
+&\delta(q_{operator}, n \in N) = q_{number} \\
+&\delta(q_{operator}, s \in S) = q_{sign} \\
+\end{align}
