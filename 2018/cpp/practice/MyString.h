@@ -10,6 +10,6 @@ private:
     int m_nLength;
 public:
     int SetString(const char* pszParam);
-    const char* GetString();
+    const char* GetString() const;
     void Release();
 };
