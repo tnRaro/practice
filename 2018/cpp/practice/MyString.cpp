@@ -9,6 +9,11 @@ CMyString::CMyString()
 CMyString::~CMyString() {
     this->Release();
 }
+CMyString::CMyString(const CMyString &rhs)
+: m_pszData(nullptr)
+, m_nLength(0) {
+    this->SetString(rhs.GetString());
+}
 int CMyString::SetString(const char* pszParam) {
     this->Release();
     if (pszParam == nullptr) {
@@ -37,4 +42,12 @@ void CMyString::Release() {
 
     m_pszData = nullptr;
     m_nLength = 0;
+}
+
+CMyString& CMyString::operator=(const CMyString &rhs) {
+    if (this != &rhs) {
+        this->SetString(rhs.GetString());
+    }
+
+    return *this;
 }
