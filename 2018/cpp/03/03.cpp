@@ -1,0 +1,6 @@
+......
+CTest(int nParam)
+    : m_nData(nParam)
+{
+    ......
+}
