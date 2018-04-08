@@ -6,6 +6,11 @@ CMyString::CMyString()
 , m_nLength(0) {
 
 }
+CMyString::CMyString(const char* data)
+: m_pszData(nullptr)
+, m_nLength(0) {
+    SetString(data);
+}
 CMyString::~CMyString() {
     this->Release();
 }
@@ -50,4 +55,7 @@ CMyString& CMyString::operator=(const CMyString &rhs) {
     }
 
     return *this;
+}
+CMyString::operator char*(void) const {
+    return m_pszData;
 }
