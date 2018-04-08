@@ -6,6 +6,7 @@ public:
     CMyString(const char*);
     ~CMyString();
     CMyString(const CMyString&);
+    CMyString(CMyString&&);
 private:
     char* m_pszData;
 

@@ -1,10 +1,10 @@
 #include "MyString.h"
 #include <cstring>
+#include <iostream>
 
 CMyString::CMyString()
 : m_pszData(nullptr)
 , m_nLength(0) {
-
 }
 CMyString::CMyString(const char* data)
 : m_pszData(nullptr)
@@ -18,6 +18,17 @@ CMyString::CMyString(const CMyString &rhs)
 : m_pszData(nullptr)
 , m_nLength(0) {
     this->SetString(rhs.GetString());
+}
+CMyString::CMyString(CMyString&& rhs)
+: m_pszData(nullptr)
+, m_nLength(0) {
+    std::cout << "CMyString(CMyString&& rhs)" << std::endl;
+    
+    m_pszData = rhs.m_pszData;
+    m_nLength = rhs.m_nLength;
+
+    rhs.m_pszData = nullptr;
+    rhs.m_nLength = 0;
 }
 int CMyString::SetString(const char* pszParam) {
     this->Release();
